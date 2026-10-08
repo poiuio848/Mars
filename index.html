@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Colony Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <span class="navbar-brand mb-0 h1">🔴 Mars Colony Manager</span>
+        <div>
+            <button id="saveBtn" class="btn btn-success btn-sm">Zapisz</button>
+            <button id="loadBtn" class="btn btn-primary btn-sm">Wczytaj</button>
+            <button id="newBtn" class="btn btn-outline-light btn-sm">Nowa kolonia</button>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-4">
+    <div id="message"></div>
+
+    <section id="newColonyPanel" class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="h4">Załóż kolonię</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nazwa kolonii</label>
+                    <input id="colonyName" class="form-control" placeholder="np. New Hope">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Mieszkańcy</label>
+                    <input id="startPopulation" type="number" class="form-control" value="100" min="1">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Budżet</label>
+                    <input id="startCredits" type="number" class="form-control" value="10000" min="1">
+                </div>
+            </div>
+            <button id="createBtn" class="btn btn-danger mt-3">Utwórz kolonię</button>
+        </div>
+    </section>
+
+    <section id="gamePanel" class="d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h1 id="colonyTitle" class="h2 mb-1"></h1>
+                <span class="badge text-bg-secondary">Dzień <span id="day"></span></span>
+            </div>
+            <button id="nextDayBtn" class="btn btn-warning btn-lg">Następny dzień →</button>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-4 col-lg">
+                <div class="card resource-card"><div class="card-body">
+                    <h5>👨‍🚀 Ludność</h5><h3 id="population">0</h3>
+                </div></div>
+            </div>
+            <div class="col-md-4 col-lg">
+                <div class="card resource-card"><div class="card-body">
+                    <h5>🫁 Tlen</h5><h3 id="oxygen">0</h3><div class="progress"><div id="oxygenBar" class="progress-bar"></div></div>
+                </div></div>
+            </div>
+            <div class="col-md-4 col-lg">
+                <div class="card resource-card"><div class="card-body">
+                    <h5>💧 Woda</h5><h3 id="water">0</h3><div class="progress"><div id="waterBar" class="progress-bar"></div></div>
+                </div></div>
+            </div>
+            <div class="col-md-4 col-lg">
+                <div class="card resource-card"><div class="card-body">
+                    <h5>⚡ Energia</h5><h3 id="energy">0</h3><div class="progress"><div id="energyBar" class="progress-bar"></div></div>
+                </div></div>
+            </div>
+            <div class="col-md-4 col-lg">
+                <div class="card resource-card"><div class="card-body">
+                    <h5>🍎 Żywność</h5><h3 id="food">0</h3><div class="progress"><div id="foodBar" class="progress-bar"></div></div>
+                </div></div>
+            </div>
+            <div class="col-md-4 col-lg">
+                <div class="card resource-card"><div class="card-body">
+                    <h5>💰 Kredyty</h5><h3 id="credits">0</h3>
+                </div></div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <div class="card shadow-sm">
+                    <div class="card-header"><strong>Budynki</strong></div>
+                    <div class="card-body">
+                        <div id="buildingList"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card shadow-sm">
+                    <div class="card-header"><strong>Log wydarzeń</strong></div>
+                    <div class="card-body p-0">
+                        <ul id="eventLog" class="list-group list-group-flush"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    background: #f2f4f7;
+}
+
+.resource-card {
+    height: 100%;
+}
+
+.resource-card h5 {
+    font-size: 1rem;
+}
+
+.progress {
+    height: 8px;
+}
+
+#eventLog {
+    max-height: 430px;
+    overflow-y: auto;
+}
+
+.building-row {
+    border-bottom: 1px solid #ddd;
+    padding: 14px 0;
+}
+
+.building-row:last-child {
+    border-bottom: 0;
+}
+
+.badge-status {
+    min-width: 75px;
+}
